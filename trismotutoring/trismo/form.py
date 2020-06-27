@@ -1,8 +1,7 @@
-from django.contrib.auth import forms
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from .models import Learner, Teacher, User
-from trismotutoring.trismo.models import User
 
 
 class LearnerSignUpForm(UserCreationForm):
@@ -24,8 +23,6 @@ class LearnerSignUpForm(UserCreationForm):
         learner = Learner.objects.create(user=user)
         learner.save()
         return learner
-
-
 
 
 class TeacherSignUpForm(UserCreationForm):
